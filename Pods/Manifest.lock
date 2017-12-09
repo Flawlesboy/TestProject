@@ -1,0 +1,35 @@
+PODS:
+  - Alamofire (4.5.1)
+  - BTNavigationDropdownMenu (0.4.1)
+  - SDWebImage (4.1.0):
+    - SDWebImage/Core (= 4.1.0)
+  - SDWebImage/Core (4.1.0)
+  - SwiftOverlays (4.0.0)
+  - SwiftyJSON (3.1.4)
+
+DEPENDENCIES:
+  - Alamofire
+  - BTNavigationDropdownMenu (from `https://github.com/zkrige/BTNavigationDropdownMenu.git`)
+  - SDWebImage
+  - SwiftOverlays
+  - SwiftyJSON
+
+EXTERNAL SOURCES:
+  BTNavigationDropdownMenu:
+    :git: https://github.com/zkrige/BTNavigationDropdownMenu.git
+
+CHECKOUT OPTIONS:
+  BTNavigationDropdownMenu:
+    :commit: 0e1bd3a84079f1bdec8bffc4db0f383bd9ee7523
+    :git: https://github.com/zkrige/BTNavigationDropdownMenu.git
+
+SPEC CHECKSUMS:
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  BTNavigationDropdownMenu: 4a88996ad514f2feff98481eb2d6a5cb7520f76c
+  SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
+  SwiftOverlays: 4e21d68e7c79076c7d619cfe331399b87731ff15
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+
+PODFILE CHECKSUM: d56288fecbfaed9e59179782f7c71e1cf7ba7d8f
+
+COCOAPODS: 1.3.1

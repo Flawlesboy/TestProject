@@ -14,6 +14,7 @@ struct Product {
     var screenshotURL: URL?
     var description: String?
     var upvotes: Int?
+    var url: URL?
 }
 
 protocol ProductListModelDelegate: class {

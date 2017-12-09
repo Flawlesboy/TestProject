@@ -24,7 +24,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProductCell" rowHeight="130" id="KZd-rh-pHi" customClass="ProductCell" customModule="TestProject" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProductCell" rowHeight="130" id="KZd-rh-pHi" customClass="ProductCell" customModule="TestProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KZd-rh-pHi" id="8BL-1H-aJj">
@@ -34,8 +34,8 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s1s-4W-OUK">
                                                     <rect key="frame" x="8" y="8" width="100" height="100"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="a9h-aS-Dja"/>
-                                                        <constraint firstAttribute="height" constant="100" id="hND-bm-f27"/>
+                                                        <constraint firstAttribute="height" constant="100" id="FpR-FD-W1N"/>
+                                                        <constraint firstAttribute="width" constant="100" id="b98-9J-Xhv"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j3f-uS-ub1">
@@ -45,38 +45,36 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJM-ZG-OcE">
-                                                    <rect key="frame" x="116" y="87" width="251" height="21"/>
+                                                    <rect key="frame" x="116" y="66" width="251" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xw7-oF-map">
-                                                    <rect key="frame" x="116" y="47.5" width="251" height="21"/>
+                                                    <rect key="frame" x="116" y="37" width="251" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="xw7-oF-map" firstAttribute="top" relation="greaterThanOrEqual" secondItem="j3f-uS-ub1" secondAttribute="bottom" constant="8" id="5SD-Js-Tku"/>
-                                                <constraint firstItem="HJM-ZG-OcE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="xw7-oF-map" secondAttribute="bottom" constant="8" id="9kz-Py-kjG"/>
-                                                <constraint firstItem="j3f-uS-ub1" firstAttribute="top" secondItem="8BL-1H-aJj" secondAttribute="topMargin" id="BfW-ZX-86e"/>
-                                                <constraint firstItem="HJM-ZG-OcE" firstAttribute="trailing" secondItem="8BL-1H-aJj" secondAttribute="trailingMargin" id="D1y-jw-Grc"/>
-                                                <constraint firstItem="xw7-oF-map" firstAttribute="leading" secondItem="s1s-4W-OUK" secondAttribute="trailing" constant="8" id="Ddq-1r-Oq4"/>
-                                                <constraint firstItem="j3f-uS-ub1" firstAttribute="leading" secondItem="s1s-4W-OUK" secondAttribute="trailing" constant="8" id="K9j-4b-GvA"/>
-                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="HJM-ZG-OcE" secondAttribute="bottom" constant="8" id="PPY-9J-KbQ"/>
-                                                <constraint firstItem="xw7-oF-map" firstAttribute="trailing" secondItem="8BL-1H-aJj" secondAttribute="trailingMargin" id="QBQ-h3-GC2"/>
-                                                <constraint firstItem="HJM-ZG-OcE" firstAttribute="bottom" secondItem="s1s-4W-OUK" secondAttribute="bottom" id="TnG-s4-JIu"/>
-                                                <constraint firstItem="s1s-4W-OUK" firstAttribute="leading" secondItem="8BL-1H-aJj" secondAttribute="leadingMargin" id="Vnc-jz-dnc"/>
-                                                <constraint firstItem="HJM-ZG-OcE" firstAttribute="leading" secondItem="s1s-4W-OUK" secondAttribute="trailing" constant="8" id="Wxa-oH-EJ4"/>
-                                                <constraint firstItem="xw7-oF-map" firstAttribute="centerY" secondItem="s1s-4W-OUK" secondAttribute="centerY" id="rAn-xB-Gn7"/>
-                                                <constraint firstItem="s1s-4W-OUK" firstAttribute="top" secondItem="8BL-1H-aJj" secondAttribute="topMargin" id="tU8-mN-5Hz"/>
-                                                <constraint firstItem="j3f-uS-ub1" firstAttribute="trailing" secondItem="8BL-1H-aJj" secondAttribute="trailingMargin" id="w5g-MU-uhn"/>
+                                                <constraint firstItem="xw7-oF-map" firstAttribute="trailing" secondItem="8BL-1H-aJj" secondAttribute="trailingMargin" id="0E6-4P-1ya"/>
+                                                <constraint firstItem="j3f-uS-ub1" firstAttribute="top" secondItem="8BL-1H-aJj" secondAttribute="topMargin" id="1cl-8o-4dr"/>
+                                                <constraint firstItem="HJM-ZG-OcE" firstAttribute="top" secondItem="xw7-oF-map" secondAttribute="bottom" constant="8" id="495-QK-pX1"/>
+                                                <constraint firstItem="xw7-oF-map" firstAttribute="leading" secondItem="s1s-4W-OUK" secondAttribute="trailing" constant="8" id="CP6-0T-4M9"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="HJM-ZG-OcE" secondAttribute="bottom" id="ND9-Cw-dA3"/>
+                                                <constraint firstItem="s1s-4W-OUK" firstAttribute="top" secondItem="8BL-1H-aJj" secondAttribute="topMargin" id="Ram-Eo-LHM"/>
+                                                <constraint firstItem="s1s-4W-OUK" firstAttribute="leading" secondItem="8BL-1H-aJj" secondAttribute="leadingMargin" id="WES-U0-tLF"/>
+                                                <constraint firstItem="j3f-uS-ub1" firstAttribute="leading" secondItem="s1s-4W-OUK" secondAttribute="trailing" constant="8" id="aad-bC-dFH"/>
+                                                <constraint firstItem="HJM-ZG-OcE" firstAttribute="leading" secondItem="s1s-4W-OUK" secondAttribute="trailing" constant="8" id="cNw-ik-lcK"/>
+                                                <constraint firstItem="HJM-ZG-OcE" firstAttribute="trailing" secondItem="8BL-1H-aJj" secondAttribute="trailingMargin" id="sAe-fM-0Yh"/>
+                                                <constraint firstItem="j3f-uS-ub1" firstAttribute="trailing" secondItem="8BL-1H-aJj" secondAttribute="trailingMargin" id="vAC-hR-mWV"/>
+                                                <constraint firstItem="xw7-oF-map" firstAttribute="top" secondItem="j3f-uS-ub1" secondAttribute="bottom" constant="8" id="xZ2-Kc-Ae8"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="descriptionLabel" destination="xw7-oF-map" id="q12-64-2Gd"/>
                                             <outlet property="nameLabel" destination="j3f-uS-ub1" id="LC9-bI-KXm"/>
-                                            <outlet property="productDescription" destination="xw7-oF-map" id="eRm-B7-uXy"/>
                                             <outlet property="productImageView" destination="s1s-4W-OUK" id="E21-CE-06V"/>
                                             <outlet property="upvotesLabel" destination="HJM-ZG-OcE" id="AxF-nz-eD3"/>
                                         </connections>

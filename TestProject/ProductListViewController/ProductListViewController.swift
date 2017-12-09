@@ -6,19 +6,38 @@ class ProductListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    var selectedTopic: Topic!
+    
     var model: ProductListModel?
     
     var products: [Product] = []
     
+    let refreshControl: UIRefreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.tableFooterView = UIView()
+        
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         
         model = ProductListModel()
         model?.delegate = self
         model?.loadTopics()
-        
-        tableView.dataSource = self
-        tableView.delegate = self
+    }
+    
+    func startRefreshing() {
+        self.tableView.refreshControl?.beginRefreshing()
+        self.tableView.setContentOffset(CGPoint(x: 0, y: -self.refreshControl.frame.size.height), animated: true)
+    }
+    
+    @objc func refreshData() {
+        if let topic = selectedTopic {
+            model?.loadProducts(from: topic)
+        }
     }
 }
 
@@ -37,7 +56,7 @@ extension ProductListViewController: UITableViewDataSource, UITableViewDelegate 
         let product = products[indexPath.row]
         cell.productImageView.sd_setImage(with: product.imageURL, completed: nil)
         cell.nameLabel.text = product.name
-        cell.productDescription.text = product.description
+        cell.descriptionLabel.text = product.description
         
         if let upvotes = product.upvotes {
             cell.upvotesLabel.text = "Upvotes: \(upvotes)"
@@ -45,12 +64,24 @@ extension ProductListViewController: UITableViewDataSource, UITableViewDelegate 
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let product = products[indexPath.row]
+        
+        let productVC = UIStoryboard(name: "ProductViewController", bundle: nil).instantiateInitialViewController() as! ProductViewController
+        let model = ProductModel(product: product)
+        productVC.model = model
+        
+        navigationController?.pushViewController(productVC, animated: true)
+    }
 }
 
 extension ProductListViewController: ProductListModelDelegate {
     func setup(products: [Product]) {
         self.products = products
+        
         DispatchQueue.main.async { [weak self] in
+            self?.refreshControl.endRefreshing()
             self?.tableView.reloadData()
         }
     }
@@ -64,11 +95,15 @@ extension ProductListViewController: ProductListModelDelegate {
         
         menuView.didSelectItemAtIndexHandler = { [weak self] indexPath in
             let topic = topics[indexPath]
+            self?.selectedTopic = topic
             self?.model?.loadProducts(from: topic)
+            self?.startRefreshing()
         }
         
         self.navigationItem.titleView = menuView
-        self.model?.loadProducts(from: Topic(name: nil, slug: "tech"))
+        self.selectedTopic = Topic(name: "Tech", slug: "tech")
+        self.model?.loadProducts(from: selectedTopic)
+        self.startRefreshing()
     }
     
     func show(error: String) {
@@ -77,6 +112,7 @@ extension ProductListViewController: ProductListModelDelegate {
         alert.addAction(cancelAction)
         
         DispatchQueue.main.async { [weak self] in
+            self?.refreshControl.endRefreshing()
             self?.present(alert, animated: true, completion: nil)
         }
     }

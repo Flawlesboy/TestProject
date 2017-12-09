@@ -7,29 +7,43 @@
 //
 
 import UIKit
+import SDWebImage
+import SafariServices
 
 class ProductViewController: UIViewController {
+    
+    @IBOutlet weak var screenshotImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var upvotesLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    var model: ProductModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        model?.delegate = self
+        model?.loadProduct()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func getitAction(_ sender: Any) {
+        model?.openProductSite()
     }
-    */
+}
 
+extension ProductViewController: ProductModelDelegate {
+    func open(url: URL) {
+        let sfc = SFSafariViewController(url: url)
+        self.present(sfc, animated: true, completion: nil)
+    }
+    
+    func setup(product: Product) {
+        self.screenshotImageView.sd_setImage(with: product.screenshotURL)
+        self.nameLabel.text = product.name
+        self.descriptionLabel.text = product.description
+        
+        if let upvotes = product.upvotes {
+            self.upvotesLabel.text = "Upvotes: \(upvotes)"
+        }
+    }
 }
